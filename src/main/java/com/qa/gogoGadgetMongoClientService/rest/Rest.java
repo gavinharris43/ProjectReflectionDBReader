@@ -63,32 +63,32 @@ public class Rest {
 	}
 	
 	@DeleteMapping("${path.deleteTrainee}")
-	public String deleteTrainee(String email) {
+	public String deleteTrainee(@PathVariable String email) {
 		return traineeService.deleteTrainee(email);
 	}
 	
 	@DeleteMapping("${path.deleteTrainer}")
-	public String deleteTrainer(String email) {
+	public String deleteTrainer(@PathVariable String email) {
 		return trainerService.deleteTrainer(email);
 	}
 	
 	@DeleteMapping("${path.deleteCohort}")
-	public String deleteCohort(String name) {
+	public String deleteCohort(@PathVariable String name) {
 		return cohortService.deleteCohort(name);
 	}
 	
 	@PutMapping("${path.updateTrainee}")
-	public String updateTrainee(String email) {
+	public String updateTrainee(@PathVariable String email) {
 		return traineeService.updateTrainee(email);
 	}
 	
 	@PutMapping("${path.updateTrainer}")
-	public String updateTrainer(String email) {
+	public String updateTrainer(@PathVariable String email) {
 		return trainerService.updateTrainer(email);
 	}
 	
 	@PutMapping("${path.updateCohort}")
-	public String updateCohort(String name) {
+	public String updateCohort(@PathVariable String name) {
 		return cohortService.updateCohort(name);
 	}
 	
