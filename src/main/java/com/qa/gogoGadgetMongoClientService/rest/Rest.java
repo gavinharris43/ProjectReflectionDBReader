@@ -24,13 +24,13 @@ import com.qa.gogoGadgetMongoClientService.service.TrainerService;
 public class Rest {
 	
 	@Autowired
-	TraineeService traineeService;
+	private TraineeService traineeService;
 	
 	@Autowired
-	TrainerService trainerService;
+	private TrainerService trainerService;
 	
 	@Autowired
-	CohortService cohortService;
+	private CohortService cohortService;
 	
 	@GetMapping("${path.getAllTrainees}")
 	public ArrayList<SentTrainee> getAllTrainees() {
@@ -63,18 +63,18 @@ public class Rest {
 	}
 	
 	@DeleteMapping("${path.deleteTrainee}")
-	public String deleteTrainee(@PathVariable String email) {
-		return traineeService.deleteTrainee(email);
+	public void deleteTrainee(@PathVariable String email) {
+		traineeService.deleteTrainee(email);
 	}
 	
 	@DeleteMapping("${path.deleteTrainer}")
-	public String deleteTrainer(@PathVariable String email) {
-		return trainerService.deleteTrainer(email);
+	public void deleteTrainer(@PathVariable String email) {
+		trainerService.deleteTrainer(email);
 	}
 	
 	@DeleteMapping("${path.deleteCohort}")
-	public String deleteCohort(@PathVariable String name) {
-		return cohortService.deleteCohort(name);
+	public void deleteCohort(@PathVariable String name) {
+		cohortService.deleteCohort(name);
 	}
 	
 	@PutMapping("${path.updateTrainee}")

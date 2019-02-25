@@ -3,9 +3,12 @@ package com.qa.gogoGadgetMongoClientService.service;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainer;
 import com.qa.gogoGadgetMongoClientService.persistence.repository.MongoTrainerRepo;
 
+@Service
 public class TrainerServiceImpl implements TrainerService {
 
 	MongoTrainerRepo repo;

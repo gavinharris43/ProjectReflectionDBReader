@@ -5,10 +5,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainee;
 import com.qa.gogoGadgetMongoClientService.persistence.repository.MongoTraineeRepo;
 
+@Service
 public class TraineeServiceImpl implements TraineeService {
 	
 	@Autowired

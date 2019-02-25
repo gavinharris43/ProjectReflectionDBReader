@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.qa.gogoGadgetMongoClientService.persistence.domain.SentCohort;
 import com.qa.gogoGadgetMongoClientService.persistence.repository.MongoCohortRepo;
 
+@Service
 public class CohortServiceImpl implements CohortService {
 
 	@Autowired
