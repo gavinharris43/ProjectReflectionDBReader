@@ -8,7 +8,7 @@ public interface TraineeService {
 	
 	public SentTrainee getSingleTraineeByEmail(String email);
 	
-	public SentTrainee getSingleTraineeByID(Long id);
+	public SentTrainee getSingleTraineeByID(String id);
 	
 	public ArrayList<SentTrainee> getAllTrainees();
 	

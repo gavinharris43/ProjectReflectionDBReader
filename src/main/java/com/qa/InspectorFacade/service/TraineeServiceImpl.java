@@ -1,8 +1,6 @@
 package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,13 +16,13 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public SentTrainee getSingleTraineeByEmail(String email) {
-		ArrayList<SentTrainee> trainee = repo.findAllByEmail(email);
-		
-		return trainee.get(0);
+		SentTrainee dude = repo.findByEmail(email);
+		return dude;
 	}
 	
 	@Override
-	public SentTrainee getSingleTraineeByID(Long id) {
+	public SentTrainee getSingleTraineeByID(String id) {
+		
 		SentTrainee sentTrainee = repo.findByTraineeId(id);
 		
 		return sentTrainee;
@@ -37,11 +35,11 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String deleteTrainee(String email) {
-	ArrayList<SentTrainee> traineeToDelete = repo.findAllByEmail(email);
+	SentTrainee traineeToDelete = repo.findAllByEmail(email);
 	
-	String traineeName = traineeToDelete.get(0).getFirstName();
+	String traineeName = traineeToDelete.getFirstName();
 	
-	repo.delete(traineeToDelete.get(0));
+	repo.delete(traineeToDelete);
 	
 	return traineeName + " deleted.";
 	
@@ -49,10 +47,10 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String updateTrainee(String email) {
-		ArrayList<SentTrainee> trainee = repo.findAllByEmail(email);
+		SentTrainee trainee = repo.findAllByEmail(email);
 		
-		repo.delete(trainee.get(0));
-		repo.save(trainee.get(0));
+		repo.delete(trainee);
+		repo.save(trainee);
 		return "Trainee successfully updated.";
 	}
 

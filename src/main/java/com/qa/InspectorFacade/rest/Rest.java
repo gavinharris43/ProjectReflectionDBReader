@@ -43,7 +43,7 @@ public class Rest {
 	}
 	
 	@GetMapping("${path.getSingleTraineeByID}")
-	public SentTrainee getSingleTraineeByID(@PathVariable Long id) {
+	public SentTrainee getSingleTraineeByID(@PathVariable String id) {
 		return traineeService.getSingleTraineeByID(id);
 	}
 	

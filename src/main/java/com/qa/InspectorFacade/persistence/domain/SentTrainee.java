@@ -20,8 +20,10 @@ public class SentTrainee {
 
 	public SentTrainee() {}
 	
-	public SentTrainee(Long traineeid, String firstName, String lastName, String email, String password, String startDate, float averageHowsYourWeek, int currentHowsYourWeek) {
-		this.traineeId = traineeid;
+	public SentTrainee(Long traineeId, String firstName, String lastName, 
+			String email, String password, String startDate, 
+			float averageHowsYourWeek, int currentHowsYourWeek) {
+		this.traineeId = traineeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
