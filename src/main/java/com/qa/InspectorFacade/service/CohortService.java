@@ -1,8 +1,8 @@
-package com.qa.gogoGadgetMongoClientService.service;
+package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
 
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentCohort;
+import com.qa.InspectorFacade.persistence.domain.SentCohort;
 
 public interface CohortService {
 

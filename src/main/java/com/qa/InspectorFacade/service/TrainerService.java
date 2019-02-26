@@ -1,8 +1,8 @@
-package com.qa.gogoGadgetMongoClientService.service;
+package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
 
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainer;
+import com.qa.InspectorFacade.persistence.domain.SentTrainer;
 
 public interface TrainerService {
 	

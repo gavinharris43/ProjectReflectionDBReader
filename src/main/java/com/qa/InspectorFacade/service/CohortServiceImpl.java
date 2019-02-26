@@ -1,4 +1,4 @@
-package com.qa.gogoGadgetMongoClientService.service;
+package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentCohort;
-import com.qa.gogoGadgetMongoClientService.persistence.repository.MongoCohortRepo;
+import com.qa.InspectorFacade.persistence.domain.SentCohort;
+import com.qa.InspectorFacade.persistence.repository.MongoCohortRepo;
 
 @Service
 public class CohortServiceImpl implements CohortService {

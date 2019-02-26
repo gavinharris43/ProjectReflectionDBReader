@@ -1,12 +1,12 @@
-package com.qa.gogoGadgetMongoClientService.service;
+package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainer;
-import com.qa.gogoGadgetMongoClientService.persistence.repository.MongoTrainerRepo;
+import com.qa.InspectorFacade.persistence.domain.SentTrainer;
+import com.qa.InspectorFacade.persistence.repository.MongoTrainerRepo;
 
 @Service
 public class TrainerServiceImpl implements TrainerService {

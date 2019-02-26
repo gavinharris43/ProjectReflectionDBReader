@@ -1,4 +1,4 @@
-package com.qa.gogoGadgetMongoClientService.service;
+package com.qa.InspectorFacade.service;
 
 public interface FormService {
 	

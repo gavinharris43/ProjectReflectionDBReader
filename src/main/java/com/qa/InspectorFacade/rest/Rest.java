@@ -1,4 +1,4 @@
-package com.qa.gogoGadgetMongoClientService.rest;
+package com.qa.InspectorFacade.rest;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentCohort;
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainee;
-import com.qa.gogoGadgetMongoClientService.persistence.domain.SentTrainer;
-import com.qa.gogoGadgetMongoClientService.service.CohortService;
-import com.qa.gogoGadgetMongoClientService.service.TraineeService;
-import com.qa.gogoGadgetMongoClientService.service.TrainerService;
+import com.qa.InspectorFacade.persistence.domain.SentCohort;
+import com.qa.InspectorFacade.persistence.domain.SentTrainee;
+import com.qa.InspectorFacade.persistence.domain.SentTrainer;
+import com.qa.InspectorFacade.service.CohortService;
+import com.qa.InspectorFacade.service.TraineeService;
+import com.qa.InspectorFacade.service.TrainerService;
 
 @CrossOrigin
 @RequestMapping("${path.base}")

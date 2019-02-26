@@ -1,4 +1,4 @@
-package com.qa.gogoGadgetMongoClientService.persistence.domain;
+package com.qa.InspectorFacade.persistence.domain;
 
 public class SentCohort {
 	
