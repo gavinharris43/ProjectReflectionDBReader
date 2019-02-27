@@ -16,7 +16,7 @@ public class CohortServiceImpl implements CohortService {
 	
 	@Override
 	public SentCohort getSingleCohortByName(String name) {
-		SentCohort cohort = repo.findByName(name);
+		SentCohort cohort = repo.findByCohortName(name);
 		return cohort;
 	}
 
@@ -27,7 +27,7 @@ public class CohortServiceImpl implements CohortService {
 
 	@Override
 	public String deleteCohort(String name) {
-		SentCohort cohortToDelete = repo.findByName(name);
+		SentCohort cohortToDelete = repo.findByCohortName(name);
 		String cohortName = cohortToDelete.getCohortName();
 		repo.delete(cohortToDelete);
 		
@@ -36,7 +36,7 @@ public class CohortServiceImpl implements CohortService {
 
 	@Override
 	public String updateCohort(String name, SentCohort newCohort) {
-		SentCohort cohort = repo.findByName(name);
+		SentCohort cohort = repo.findByCohortName(name);
 		
 		repo.delete(cohort);
 		cohort = newCohort;
