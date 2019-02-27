@@ -10,6 +10,4 @@ public interface FormService {
 	
 	String deleteForm(String email);
 	
-	String updateForm(String email);
-
 }

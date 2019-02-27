@@ -11,5 +11,7 @@ import com.qa.InspectorFacade.persistence.domain.SentReflectionForm;
 public interface MongoFormRepo extends MongoRepository<SentReflectionForm, Long> {
 	
 	ArrayList<SentReflectionForm> getAllFormsByEmail(String email);
+	
+	SentReflectionForm findByEmail(String email);
 
 }
