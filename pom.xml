@@ -52,6 +52,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-plugin-api -->
+		<dependency>
+		    <groupId>org.sonarsource.sonarqube</groupId>
+		    <artifactId>sonar-plugin-api</artifactId>
+		    <version>7.6</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

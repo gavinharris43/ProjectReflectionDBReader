@@ -12,6 +12,6 @@ public interface CohortService {
 	
 	public String deleteCohort(String name);
 	
-	public String updateCohort(String name);
+	public String updateCohort(String name, SentCohort newCohort);
 
 }

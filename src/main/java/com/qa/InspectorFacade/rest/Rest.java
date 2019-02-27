@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.InspectorFacade.persistence.domain.SentCohort;
+import com.qa.InspectorFacade.persistence.domain.SentReflectionForm;
 import com.qa.InspectorFacade.persistence.domain.SentTrainee;
 import com.qa.InspectorFacade.persistence.domain.SentTrainer;
 import com.qa.InspectorFacade.service.CohortService;
+import com.qa.InspectorFacade.service.FormService;
 import com.qa.InspectorFacade.service.TraineeService;
 import com.qa.InspectorFacade.service.TrainerService;
 
@@ -32,6 +34,9 @@ public class Rest {
 	@Autowired
 	private CohortService cohortService;
 	
+	@Autowired
+	private FormService formService;
+	
 	@GetMapping("${path.getAllTrainees}")
 	public ArrayList<SentTrainee> getAllTrainees() {
 		return traineeService.getAllTrainees();
@@ -40,11 +45,6 @@ public class Rest {
 	@GetMapping("${path.getSingleTraineeByEmail}")
 	public SentTrainee getSingleTraineeByEmail(@PathVariable String email) {
 		return traineeService.getSingleTraineeByEmail(email);
-	}
-	
-	@GetMapping("${path.getSingleTraineeByID}")
-	public SentTrainee getSingleTraineeByID(@PathVariable String id) {
-		return traineeService.getSingleTraineeByID(id);
 	}
 	
 	@GetMapping("${path.getSingleTrainerByEmail}")
@@ -78,18 +78,23 @@ public class Rest {
 	}
 	
 	@PutMapping("${path.updateTrainee}")
-	public String updateTrainee(@PathVariable String email) {
-		return traineeService.updateTrainee(email);
+	public String updateTrainee(@PathVariable String email, SentTrainee newTrainee) {
+		return traineeService.updateTrainee(email, newTrainee);
 	}
 	
 	@PutMapping("${path.updateTrainer}")
-	public String updateTrainer(@PathVariable String email) {
-		return trainerService.updateTrainer(email);
+	public String updateTrainer(@PathVariable String email, SentTrainer newTrainer) {
+		return trainerService.updateTrainer(email, newTrainer);
 	}
 	
 	@PutMapping("${path.updateCohort}")
-	public String updateCohort(@PathVariable String name) {
-		return cohortService.updateCohort(name);
+	public String updateCohort(@PathVariable String name, SentCohort newCohort) {
+		return cohortService.updateCohort(name, newCohort);
+	}
+	
+	@GetMapping("${path.getAllFormsSpecificTraineeByEmail}")
+	public ArrayList<SentReflectionForm> getAllFormsSpecificTraineeByEmail(String email) {
+		return formService.getAllFormByEmail(email);
 	}
 	
 	@GetMapping("${path.getDataForGraph}")

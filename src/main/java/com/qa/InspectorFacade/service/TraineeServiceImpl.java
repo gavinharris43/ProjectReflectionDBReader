@@ -21,24 +21,14 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 	
 	@Override
-	public SentTrainee getSingleTraineeByID(String id) {
-		
-		SentTrainee sentTrainee = repo.findByTraineeId(id);
-		
-		return sentTrainee;
-	}
-	
-	@Override
 	public ArrayList<SentTrainee> getAllTrainees() {
 		return (ArrayList<SentTrainee>) repo.findAll();
 	}
 
 	@Override
 	public String deleteTrainee(String email) {
-	SentTrainee traineeToDelete = repo.findAllByEmail(email);
-	
+	SentTrainee traineeToDelete = repo.findByEmail(email);
 	String traineeName = traineeToDelete.getFirstName();
-	
 	repo.delete(traineeToDelete);
 	
 	return traineeName + " deleted.";
@@ -46,11 +36,12 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public String updateTrainee(String email) {
-		SentTrainee trainee = repo.findAllByEmail(email);
+	public String updateTrainee(String email, SentTrainee newTrainee) {
+		SentTrainee trainee = repo.findByEmail(email);
 		
 		repo.delete(trainee);
-		repo.save(trainee);
+		trainee = newTrainee;
+		repo.save(newTrainee);
 		return "Trainee successfully updated.";
 	}
 

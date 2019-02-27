@@ -12,6 +12,6 @@ public interface TrainerService {
 	
 	public String deleteTrainer(String email);
 	
-	public String updateTrainer(String email);
+	public String updateTrainer(String email, SentTrainer newTrainer);
 
 }

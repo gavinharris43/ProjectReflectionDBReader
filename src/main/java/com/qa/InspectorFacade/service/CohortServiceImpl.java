@@ -17,11 +17,8 @@ public class CohortServiceImpl implements CohortService {
 	
 	@Override
 	public SentCohort getSingleCohortByName(String name) {
-		ArrayList<SentCohort> Cohorts = (ArrayList<SentCohort>) repo.findAll();
-		ArrayList<SentCohort> cohort = new ArrayList<SentCohort>();
-		cohort = (ArrayList<SentCohort>) cohort.stream().filter(x -> name.equals(x.getCohortName())).collect(Collectors.toList());
-		
-		return cohort.get(0);
+		SentCohort cohort = repo.findByName(name);
+		return cohort;
 	}
 
 	@Override
@@ -31,25 +28,22 @@ public class CohortServiceImpl implements CohortService {
 
 	@Override
 	public String deleteCohort(String name) {
-		ArrayList<SentCohort> cohorts = (ArrayList<SentCohort>) repo.findAll();
-		ArrayList<SentCohort> cohort = new ArrayList<SentCohort>();
-		cohort = (ArrayList<SentCohort>) cohorts.stream().filter(x -> name.equals(x.getCohortName())).collect(Collectors.toList());
+		SentCohort cohortToDelete = repo.findByName(name);
+		String cohortName = cohortToDelete.getCohortName();
+		repo.delete(cohortToDelete);
 		
-		repo.delete(cohort.get(0));
-		
-		return "cohort got rekt yo.";
+		return cohortName + " deleted.";
 	}
 
 	@Override
-	public String updateCohort(String name) {
-		ArrayList<SentCohort> cohorts = (ArrayList<SentCohort>) repo.findAll();
-		ArrayList<SentCohort> cohort = new ArrayList<SentCohort>();
-		cohort = (ArrayList<SentCohort>) cohorts.stream().filter(x -> name.equals(x.getCohortName())).collect(Collectors.toList());
+	public String updateCohort(String name, SentCohort newCohort) {
+		SentCohort cohort = repo.findByName(name);
 		
-		repo.delete(cohort.get(0));
-		repo.save(cohort.get(0));
+		repo.delete(cohort);
+		cohort = newCohort;
+		repo.save(newCohort);
 		
-		return "Cohort successfully deleted.";
+		return "Cohort successfully updated.";
 	}
 
 }

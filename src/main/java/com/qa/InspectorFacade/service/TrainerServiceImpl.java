@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.qa.InspectorFacade.persistence.domain.SentTrainee;
 import com.qa.InspectorFacade.persistence.domain.SentTrainer;
 import com.qa.InspectorFacade.persistence.repository.MongoTrainerRepo;
 
@@ -15,11 +16,9 @@ public class TrainerServiceImpl implements TrainerService {
 	
 	@Override
 	public SentTrainer getSingleTrainerByEmail(String email) {
-		ArrayList<SentTrainer> trainers = (ArrayList<SentTrainer>) repo.findAll();
-		ArrayList<SentTrainer> trainer = new ArrayList<SentTrainer>();
-		trainer = (ArrayList<SentTrainer>) trainers.stream().filter(x -> email.equals(x.getEmail())).collect(Collectors.toList());
+		SentTrainer sentTrainer = repo.findByEmail(email);
 		
-		return trainer.get(0);
+		return sentTrainer;
 	}
 
 	@Override
@@ -29,24 +28,21 @@ public class TrainerServiceImpl implements TrainerService {
 
 	@Override
 	public String deleteTrainer(String email) {
-		ArrayList<SentTrainer> trainers = (ArrayList<SentTrainer>) repo.findAll();
-		ArrayList<SentTrainer> trainer = new ArrayList<SentTrainer>();
-		trainer = (ArrayList<SentTrainer>) trainers.stream().filter(x -> email.equals(x.getEmail())).collect(Collectors.toList());
+		SentTrainer trainerToDelete = repo.findByEmail(email);
+		String trainerName = trainerToDelete.getFirstName();
+		repo.delete(trainerToDelete);
 		
-		repo.delete(trainer.get(0));
-		
-		return "trainer got rekt yo.";
+		return trainerName + " deleted.";
 	}
 
 	@Override
-	public String updateTrainer(String email) {
-		ArrayList<SentTrainer> trainers = (ArrayList<SentTrainer>) repo.findAll();
-		ArrayList<SentTrainer> theTrainer = new ArrayList<SentTrainer>();
-		theTrainer = (ArrayList<SentTrainer>) trainers.stream().filter(x -> email.equals(x.getEmail())).collect(Collectors.toList());
+	public String updateTrainer(String email, SentTrainer newTrainer) {
+		SentTrainer trainer = repo.findByEmail(email);
 		
-		repo.delete(theTrainer.get(0));
-		repo.save(theTrainer.get(0));
-		return "Trainer successfully deleted.";
+		repo.delete(trainer);
+		trainer = newTrainer;
+		repo.save(newTrainer);
+		return "Trainee successfully updated.";
 	}
 
 }

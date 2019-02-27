@@ -6,6 +6,8 @@ private Long formId;
 	
 	private Long traineeId;
 	
+	private String email;
+	
 	private int weekNumber;
 	
 	private int howsYourWeek;
@@ -30,6 +32,16 @@ private Long formId;
 		this.whatWentBad = reflectionForm.getWhatWentBad();
 		this.howToStopDoingBad = reflectionForm.getHowToStopDoingBad();
 		this.traineeId = reflectionForm.getTraineeId();
+		this.email = reflectionForm.getEmail();
+		
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getHowsYourWeek() {

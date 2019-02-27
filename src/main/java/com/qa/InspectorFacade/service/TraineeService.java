@@ -8,12 +8,10 @@ public interface TraineeService {
 	
 	public SentTrainee getSingleTraineeByEmail(String email);
 	
-	public SentTrainee getSingleTraineeByID(String id);
-	
 	public ArrayList<SentTrainee> getAllTrainees();
 	
 	public String deleteTrainee(String email);
 	
-	public String updateTrainee(String email);
+	public String updateTrainee(String email, SentTrainee newTrainee);
 
 }

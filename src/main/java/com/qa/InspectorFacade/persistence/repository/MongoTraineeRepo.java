@@ -11,9 +11,5 @@ public interface MongoTraineeRepo extends MongoRepository<SentTrainee, Long> {
 	public SentTrainee findAllByEmail(String email);
 	
 	public SentTrainee findByEmail(String email);
-	
-	public SentTrainee findByTraineeId(String traineeId);
-
-	public SentTrainee findBy(String email);
 
 }
