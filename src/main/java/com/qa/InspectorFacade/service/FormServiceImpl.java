@@ -19,6 +19,11 @@ public class FormServiceImpl implements FormService{
 	public ArrayList<SentReflectionForm> getAllFormByEmail(String email) {
 		return repo.getAllFormsByEmail(email);
 	}
+	
+	@Override
+	public ArrayList<SentReflectionForm> getAllForms() {
+		return (ArrayList<SentReflectionForm>) repo.findAll();
+	}
 
 	@Override
 	public String deleteForm(String email) {

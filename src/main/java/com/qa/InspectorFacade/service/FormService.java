@@ -8,6 +8,8 @@ public interface FormService {
 	
 	ArrayList<SentReflectionForm> getAllFormByEmail(String email);
 	
+	ArrayList<SentReflectionForm> getAllForms();
+	
 	String deleteForm(String email);
 	
 }

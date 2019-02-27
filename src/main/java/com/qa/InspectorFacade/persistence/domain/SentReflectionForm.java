@@ -2,7 +2,7 @@ package com.qa.InspectorFacade.persistence.domain;
 
 public class SentReflectionForm {
 
-private Long formId;
+	private Long formId;
 	
 	private Long traineeId;
 	
@@ -20,20 +20,28 @@ private Long formId;
 	
 	private String howToStopDoingBad;
 	
-	public SentReflectionForm() {
+	public SentReflectionForm() {}
+	
+	public SentReflectionForm(Long traineeId, String email, int weekNumber, int howsYourWeek, String whatWentWell, String howToKeepDoingWell,
+			String whatWentBad, String howToStopDoingBad) {
 		
+		this.traineeId = traineeId;
+		this.email = email;
+		this.weekNumber = weekNumber;
+		this.howsYourWeek = howsYourWeek;
+		this.whatWentWell = whatWentWell;
+		this.howToKeepDoingWell = howToKeepDoingWell;
+		this.whatWentBad = whatWentBad;
+		this.howToStopDoingBad = howToStopDoingBad;
 	}
 	
-	public SentReflectionForm(ReflectionForm reflectionForm) {
-		this.weekNumber = reflectionForm.getWeekNumber();
-		this.howsYourWeek = reflectionForm.getHowsYourWeek();
-		this.whatWentWell = reflectionForm.getWhatWentWell();
-		this.howToKeepDoingWell = reflectionForm.getHowToKeepDoingWell();
-		this.whatWentBad = reflectionForm.getWhatWentBad();
-		this.howToStopDoingBad = reflectionForm.getHowToStopDoingBad();
-		this.traineeId = reflectionForm.getTraineeId();
-		this.email = reflectionForm.getEmail();
-		
+
+	public Long getTraineeId() {
+		return traineeId;
+	}
+
+	public void setTraineeId(Long traineeId) {
+		this.traineeId = traineeId;
 	}
 
 	public String getEmail() {
@@ -98,13 +106,5 @@ private Long formId;
 
 	public void setWeekNumber(int weekNumber) {
 		this.weekNumber = weekNumber;
-	}
-
-	public Long getTraineeId() {
-		return traineeId;
-	}
-
-	public void setTraineeId(Long traineeId) {
-		this.traineeId = traineeId;
 	}
 }

@@ -101,6 +101,11 @@ public class Rest {
 	public String deleteForm(@PathVariable String email) {
 		return formService.deleteForm(email);
 	}
+	
+	@GetMapping("${path.getAllForms}")
+	public ArrayList<SentReflectionForm> getAllForms() {
+		return formService.getAllForms();
+	}
 
 	@GetMapping("${path.getDataForGraph}")
 	public String getDataForGraph(@PathVariable String name) {
