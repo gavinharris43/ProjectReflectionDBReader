@@ -1,11 +1,7 @@
 package com.qa.InspectorFacade.service;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-
-import com.qa.InspectorFacade.persistence.domain.SentTrainee;
 import com.qa.InspectorFacade.persistence.domain.SentTrainer;
 import com.qa.InspectorFacade.persistence.repository.MongoTrainerRepo;
 
@@ -28,11 +24,8 @@ public class TrainerServiceImpl implements TrainerService {
 
 	@Override
 	public String deleteTrainer(String email) {
-		SentTrainer trainerToDelete = repo.findByEmail(email);
-		String trainerName = trainerToDelete.getFirstName();
-		repo.delete(trainerToDelete);
-		
-		return trainerName + " deleted.";
+		repo.deleteByEmail(email);
+		return "deleted";
 	}
 
 	@Override

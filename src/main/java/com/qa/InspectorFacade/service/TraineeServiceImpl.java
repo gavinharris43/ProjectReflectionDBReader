@@ -27,11 +27,8 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String deleteTrainee(String email) {
-	SentTrainee traineeToDelete = repo.findByEmail(email);
-	String traineeName = traineeToDelete.getFirstName();
-	repo.delete(traineeToDelete);
-	
-	return traineeName + " deleted.";
+	repo.deleteByEmail(email);
+	return "deleted.";
 	
 	}
 

@@ -22,11 +22,8 @@ public class FormServiceImpl implements FormService{
 
 	@Override
 	public String deleteForm(String email) {
-		SentReflectionForm formToDelete = repo.findByEmail(email);
-		String formName = formToDelete.getEmail();
-		repo.delete(formToDelete);
-		
-		return formName + "'s form deleted!";
+		repo.deleteByEmail(email);
+		return "deleted";
 	}
 
 }

@@ -12,4 +12,6 @@ public interface MongoCohortRepo extends MongoRepository<SentCohort, Long>{
 	
 	public SentCohort findByCohortName(String name);
 	
+	public String deleteByCohortName(String name);
+	
 }

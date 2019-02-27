@@ -12,6 +12,8 @@ public interface MongoTrainerRepo extends MongoRepository<SentTrainer, Long>{
 	public SentTrainer findAllByEmail(String email);
 	
 	public SentTrainer findByEmail(String email);
+	
+	public String deleteByEmail(String email);
 
 }
 

@@ -27,11 +27,8 @@ public class CohortServiceImpl implements CohortService {
 
 	@Override
 	public String deleteCohort(String name) {
-		SentCohort cohortToDelete = repo.findByCohortName(name);
-		String cohortName = cohortToDelete.getCohortName();
-		repo.delete(cohortToDelete);
-		
-		return cohortName + " deleted.";
+		repo.deleteByCohortName(name);
+		return "deleted";
 	}
 
 	@Override
